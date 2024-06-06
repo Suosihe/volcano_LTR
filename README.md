@@ -15,7 +15,7 @@ We recommend installing with `conda`
 
 待補充
 
-***Give conda yml ***
+***Give conda yml***
 
 manual installation
 
@@ -87,10 +87,15 @@ Using the volcano.sh script, four input files are essential.
 The ptional parameters：
 
 `-c` sequence identity threshold for cd-hit default 0.8
+
 `-L` alignment coverage for the longer sequence in cd-hit, default 0.8
+
 `-T` threads for cd-hit default 0, use all CPUs
+
 `-M` memory limit (in MB) for cd-hit default 0 for no limit
+
 `-p` parallel number for RepeatMasker default 80
+
 `-v` 'div' in RepeatMasker Masks only those repeats with (number) percent diverged from consensus, default 40
 
 ```
