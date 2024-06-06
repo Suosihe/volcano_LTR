@@ -84,7 +84,7 @@ Using the volcano.sh script, four input files are essential.
 
 `-s` option is the genome size file. If you are using `prepare.sh`, the file name is 'len'.
 
-The ptional parameters：
+The optional parameters：
 
 `-c` sequence identity threshold for cd-hit default 0.8
 
