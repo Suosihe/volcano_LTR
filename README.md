@@ -13,6 +13,8 @@ Quantitative dependence:`telescope`,`r-optparse`,`r-readr`,`r-dplyr`
 
 We recommend installing with `conda`
 
+待補充
+
 ***Give conda yml ***
 
 manual installation
@@ -57,7 +59,9 @@ Usage: prepare.sh [-d dir_prefix] [-E /path/to/EDTA e.g. ~/A_thaliana/EDTA]
 
 ### Preparation - LTR_retriever-dependent operation
 
-If you have run the `LTR retriever` manually, the `pass.list` file required for `volcano.sh` can be found in the output directory. The genome size file can be obtained by fai indexing. For example
+If you have run the `LTR retriever` manually, the `pass.list` file required for `volcano.sh` can be found in the output directory. 
+
+The genome size file can be obtained by fai indexing. For example
 
 ```shell
 samtools faidx xxx.fasta
@@ -70,17 +74,15 @@ tail -n 1 xxx.fasta.fai|cut -f 3 > len
 
 ***Question: Families names***
 
-Using the volcano.sh script
+Using the volcano.sh script, four input files are essential.
 
-Four input files are essential.
+`-l` option is the result of `LTR_retriver` (in `EDTA`) and ends with `pass.list`.
 
-`-l` option is the result of LTR_retriver (in EDTA) and ends with pass.list.
-
-`-f` option is the reference genome, which usually ends in mod if you are using EDTA as an input file.
+`-f` option is the reference genome, which usually ends in mod if you are using `EDTA` as an input file.
 
 `-n` option is the prefix you defined.
 
-`-s` option is the genome size file. If you are using prepare.sh, the file name is len.
+`-s` option is the genome size file. If you are using `prepare.sh`, the file name is 'len'.
 
 The ptional parameters：
 
