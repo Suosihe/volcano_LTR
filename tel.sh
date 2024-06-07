@@ -23,7 +23,7 @@ printHelpAndExit() {
         exit "$1"
 }
 
-while getopts "g:s:p:h:" opt;
+while getopts "g:s:p:h:n:" opt;
 do
     case $opt in
         g) gff=$OPTARG
