@@ -70,9 +70,6 @@ tail -n 1 xxx.fasta.fai|cut -f 3 > len
 
 ### Classification
 
-問題
-
-***Question: Families names***
 
 Using the volcano.sh script, four input files are essential.
 
@@ -123,8 +120,7 @@ Import `copia.RT.tree` and `gypsy.RT.tree` in itol, then import the colour annot
 
 問題：
 
-***1. 能否成功得到st.sam
-2. 定量結果加上family名？***
+***定量結果加上family名？***
 
 Find `pass.list.gff` in `EDTA_raw/LTR` directory or `pass.list.gff` in `LTR retriever` directory.
 
