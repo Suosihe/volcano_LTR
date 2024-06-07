@@ -134,6 +134,7 @@ The file can be obtained with the following command:
 
 
 ```shell
+# for reference only
 hisat2-build -p 10 xxx.fasta.mod xxxmod
 hisat2 -x xxxmod -1 xxxRNAseq1_R1.fq.gz -2 xxxRNAseq1_R2.fq.gz -S xxx1.sam -p 8
 hisat2 -x xxxmod -1 xxxRNAseq2_R1.fq.gz -2 xxxRNAseq2_R2.fq.gz -S xxx2.sam -p 8
@@ -141,7 +142,8 @@ hisat2 -x xxxmod -1 xxxRNAseq3_R1.fq.gz -2 xxxRNAseq3_R2.fq.gz -S xxx2.sam -p 8
 samtools view -@ 4 -b xxx1.sam |samtools sort -@ 4 -O BAM -o xxx1.st.bam
 samtools view -@ 4 -b xxx2.sam |samtools sort -@ 4 -O BAM -o xxx2.st.bam
 samtools view -@ 4 -b xxx3.sam |samtools sort -@ 4 -O BAM -o xxx3.st.bam
-samtools merge -O SAM merged.st.sam xxx1.st.bam xxx2.st.bam
+samtools merge -@ 10 -o xxx_merged.st.bam xxx1.st.bam xxx2.st.bam xxx3.st.bam
+samtools sort -n -O SAM -@ 10 xxx_merged.s2.bam -o xxx_merged.st.sam
 ```
 
 `-p` option is a prefix for the results file.
