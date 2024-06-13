@@ -40,7 +40,7 @@ export PATH=/path/to/volcano
 
 ## Usage
 
-You need the LTR_retriver results to run the `volcano` pipeline. If you run EDTA, you may found the input files in `*mod.EDTA.raw/LTR/`. To get more details for preparation, you can see [Wiki](https://github.com/Suosihe/volcano_LTR/wiki).
+You need the `LTR_retriver` results to run the `volcano` pipeline. If you run `EDTA`, you may found the input files in `*mod.EDTA.raw/LTR/`. To get more details for input-file-preparation, you can see [Wiki](https://github.com/Suosihe/volcano_LTR/wiki).
 
 ### Classification
 
