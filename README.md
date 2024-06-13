@@ -1,5 +1,5 @@
 # volcano_LTR
-The pipeline to characterize the LTR-RTs family, classify and predict the burst families
+The pipeline to characterize the LTR-RTs family, classify and predict the burst families.
 
 ## Installation
 
@@ -40,6 +40,51 @@ export PATH=/path/to/volcano
 
 ## Usage
 
+You need the LTR_retriver results to run the `volcano` pipeline. If you run EDTA, you may found the input files in `*mod.EDTA.raw/LTR/`. To get more details for preparation, you can see Wiki.
+
+### Classification
+
+
+```
+volcano.sh
+Usage: volcano.sh
+                   Required parameters:
+               [-l reference.fa.pass.list] [-f reference.fa]
+               [-n prefix] [-s genome_size_bp_file]
+                   Optional parameters:
+               [-c sequence identity threshold for cd-hit] default 0.8
+               [-L alignment coverage for the longer sequence in cd-hit], default 0.8
+               [-T threads for cd-hit] default 0, use all CPUs
+               [-M memory limit (in MB) for cd-hit] default 0 for no limit
+               [-p parallel number for RepeatMasker] default 80
+               [-v 'div' in RepeatMasker] Masks only those repeats with (number) percent diverged from consensus, default 40
+```
+
+Using the volcano.sh script, four input files are essential.
+
+`-l` option is the result of `LTR_retriver` (in `EDTA`) and ends with `pass.list`.
+
+`-f` option is the reference genome, which usually ends in mod if you are using `EDTA` as an input file.
+
+`-n` option is the prefix you defined.
+
+`-s` option is the genome size file. It only contains the length number of the genome.
+
+The optional parameters：
+
+`-c` sequence identity threshold for cd-hit default 0.8
+
+`-L` alignment coverage for the longer sequence in cd-hit, default 0.8
+
+`-T` threads for cd-hit default 0, use all CPUs
+
+`-M` memory limit (in MB) for cd-hit default 0 for no limit
+
+`-p` parallel number for RepeatMasker default 80
+
+`-v` 'div' in RepeatMasker Masks only those repeats with (number) percent diverged from consensus, default 40
+
+
 ### Preparation - EDTA-dependent operation
 
 When you have finished `EDTA`, you can use our script to get the result file of `LTR_retriver` in `EDTA` to be used as the input file for subsequent classification and quantification.
@@ -68,48 +113,6 @@ samtools faidx xxx.fasta
 tail -n 1 xxx.fasta.fai|cut -f 3 > len
 ```
 
-### Classification
-
-
-Using the volcano.sh script, four input files are essential.
-
-`-l` option is the result of `LTR_retriver` (in `EDTA`) and ends with `pass.list`.
-
-`-f` option is the reference genome, which usually ends in mod if you are using `EDTA` as an input file.
-
-`-n` option is the prefix you defined.
-
-`-s` option is the genome size file. If you are using `prepare.sh`, the file name is 'len'.
-
-The optional parameters：
-
-`-c` sequence identity threshold for cd-hit default 0.8
-
-`-L` alignment coverage for the longer sequence in cd-hit, default 0.8
-
-`-T` threads for cd-hit default 0, use all CPUs
-
-`-M` memory limit (in MB) for cd-hit default 0 for no limit
-
-`-p` parallel number for RepeatMasker default 80
-
-`-v` 'div' in RepeatMasker Masks only those repeats with (number) percent diverged from consensus, default 40
-
-```
-volcano.sh
-Usage: volcano.sh
-                   Required parameters:
-               [-l reference.fa.pass.list] [-f reference.fa]
-               [-n prefix] [-s genome_size_bp_file]
-                   Optional parameters:
-               [-c sequence identity threshold for cd-hit] default 0.8
-               [-L alignment coverage for the longer sequence in cd-hit], default 0.8
-               [-T threads for cd-hit] default 0, use all CPUs
-               [-M memory limit (in MB) for cd-hit] default 0 for no limit
-               [-p parallel number for RepeatMasker] default 80
-               [-v 'div' in RepeatMasker] Masks only those repeats with (number) percent diverged from consensus, default 40
-```
-
 ### More precise categorisation
 
 Import `copia.RT.tree` and `gypsy.RT.tree` in itol, then import the colour annotation file, sort and manually export by category (colour).
@@ -118,16 +121,31 @@ Import `copia.RT.tree` and `gypsy.RT.tree` in itol, then import the colour annot
 
 ### Quantification
 
+```
+tel.sh
+Usage: tel.sh     Required parameters:
+               [-g pass.list.gff3]  [-s sorted.sam]  [-p prefix]  [-n number]
+
+* [pass.list.gff3] must be defined in the script. It is in your LTR_retriver path or [EDTA.raw/LTR/]. 
+
+* [sorted.sam] must be defined in the script. It is a sorted sam file usually contains alignment results. 
+
+* [prefix] must be defined in the script. It is the prefix you defined for your output. 
+
+* [number, genome_size_bp] must be defined in the script. It is a file which only contains genome size (bp) number. It can be got from index file. 
+
+* -h, --help: print this help and exit
+```
+
 問題：
 
 ***定量結果加上family名？***
 
-Find `pass.list.gff` in `EDTA_raw/LTR` directory or `pass.list.gff` in `LTR retriever` directory.
+Find `*pass.list.gff3` in `EDTA_raw/LTR` directory or `*pass.list.gff3` in `LTR retriever` directory.
 
-The `sorted.sam` file is obtained by comparing the RNA-seq file with the reference genome.
+The `*sorted.sam` file is obtained by comparing the RNA-seq file with the reference genome. 
 
 The file can be obtained with the following command:
-
 
 ```shell
 # for reference only
@@ -146,20 +164,10 @@ samtools sort -n -O SAM -@ 10 xxx_merged.s2.bam -o xxx_merged.st.sam
 
 `-n` option is the genome size file.
 
-```
-tel.sh
-Usage: tel.sh     Required parameters:
-               [-g pass.list.gff3]  [-s sorted.sam]  [-p prefix]  [-n number]
+## Output
 
-* [pass.list.gff3] must be defined in the script. It is in your LTR_retriver path or [EDTA.raw/LTR/]. 
+### Classification
 
-* [sorted.sam] must be defined in the script. It is a sorted sam file usually contains alignment results. 
-
-* [prefix] must be defined in the script. It is the prefix you defined for your output. 
-
-* [number, genome_size_bp] must be defined in the script. It is a file which only contains genome size (bp) number. It can be got from index file. 
-
-* -h, --help: print this help and exit
-```
+### Quantification
 
 The obtained `prefix_RPKM.tsv` is the quantitative file.
