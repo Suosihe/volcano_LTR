@@ -40,10 +40,9 @@ export PATH=/path/to/volcano
 
 ## Usage
 
-You need the LTR_retriver results to run the `volcano` pipeline. If you run EDTA, you may found the input files in `*mod.EDTA.raw/LTR/`. To get more details for preparation, you can see Wiki.
+You need the LTR_retriver results to run the `volcano` pipeline. If you run EDTA, you may found the input files in `*mod.EDTA.raw/LTR/`. To get more details for preparation, you can see [Wiki](https://github.com/Suosihe/volcano_LTR/wiki).
 
 ### Classification
-
 
 ```
 volcano.sh
@@ -84,40 +83,8 @@ The optional parameters：
 
 `-v` 'div' in RepeatMasker Masks only those repeats with (number) percent diverged from consensus, default 40
 
+If you want to prepare the input files more conveniently, you may visit [Wiki](https://github.com/Suosihe/volcano_LTR/wiki).
 
-### Preparation - EDTA-dependent operation
-
-When you have finished `EDTA`, you can use our script to get the result file of `LTR_retriver` in `EDTA` to be used as the input file for subsequent classification and quantification.
-
-`-d` option is the name of the folder you created.
-
-`-E` option is the location to run `EDTA`, there are usually folders such as `EDTA.raw`, `EDTA.final` under the location.
-
-`-f` option is the genome file used to run `EDTA`, which is usually in fasta format with a 'mod' suffix.
-
-
-```shell
-prepare.sh 
-Usage: prepare.sh [-d dir_prefix] [-E /path/to/EDTA e.g. ~/A_thaliana/EDTA]
-       [-f /path/to/fasta(for EDTA) e.g. ~/A_thaliana/EDTA/A_thaliana.fa.mod]
-```
-
-### Preparation - LTR_retriever-dependent operation
-
-If you have run the `LTR retriever` manually, the `pass.list` file required for `volcano.sh` can be found in the output directory. 
-
-The genome size file can be obtained by fai indexing. For example
-
-```shell
-samtools faidx xxx.fasta
-tail -n 1 xxx.fasta.fai|cut -f 3 > len
-```
-
-### More precise categorisation
-
-Import `copia.RT.tree` and `gypsy.RT.tree` in itol, then import the colour annotation file, sort and manually export by category (colour).
-
-***待補充***
 
 ### Quantification
 
@@ -143,22 +110,7 @@ Usage: tel.sh     Required parameters:
 
 Find `*pass.list.gff3` in `EDTA_raw/LTR` directory or `*pass.list.gff3` in `LTR retriever` directory.
 
-The `*sorted.sam` file is obtained by comparing the RNA-seq file with the reference genome. 
-
-The file can be obtained with the following command:
-
-```shell
-# for reference only
-hisat2-build -p 10 xxx.fasta.mod xxxmod
-hisat2 -x xxxmod -1 xxxRNAseq1_R1.fq.gz -2 xxxRNAseq1_R2.fq.gz -S xxx1.sam -p 8
-hisat2 -x xxxmod -1 xxxRNAseq2_R1.fq.gz -2 xxxRNAseq2_R2.fq.gz -S xxx2.sam -p 8
-hisat2 -x xxxmod -1 xxxRNAseq3_R1.fq.gz -2 xxxRNAseq3_R2.fq.gz -S xxx2.sam -p 8
-samtools view -@ 4 -b xxx1.sam |samtools sort -@ 4 -O BAM -o xxx1.st.bam
-samtools view -@ 4 -b xxx2.sam |samtools sort -@ 4 -O BAM -o xxx2.st.bam
-samtools view -@ 4 -b xxx3.sam |samtools sort -@ 4 -O BAM -o xxx3.st.bam
-samtools merge -@ 10 -o xxx_merged.st.bam xxx1.st.bam xxx2.st.bam xxx3.st.bam
-samtools sort -n -O SAM -@ 10 xxx_merged.s2.bam -o xxx_merged.st.sam
-```
+The `*sorted.sam` file is obtained by comparing the RNA-seq file with the reference genome. If you are unsure about the file, you can refer to the [Wiki](https://github.com/Suosihe/volcano_LTR/wiki). 
 
 `-p` option is a prefix for the results file.
 
