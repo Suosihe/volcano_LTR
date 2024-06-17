@@ -1,7 +1,23 @@
-# volcano_LTR
+![image](https://github.com/Suosihe/volcano_LTR/assets/63804301/a0ca0dbb-7f8b-4c80-8955-2746c24ebe1c)# volcano_LTR
 The pipeline to characterize the LTR-RTs family, classify and predict the burst families.
 
 ## Installation
+
+We recommend installing dependence with `conda`
+
+```shell
+conda env create -f volcano.yml
+```
+
+Then
+
+```shell
+git clone https://github.com/Suosihe/volcano_LTR.git
+chmod a+x prepare.sh volcano.sh tel.sh
+export PATH=/path/to/volcano
+```
+
+The dependence contains:
 
 `perl >= 5.0`​
 
@@ -11,32 +27,6 @@ Quantitative dependence:`telescope`,`r-optparse`,`r-readr`,`r-dplyr`
 
 `R >= 4.0`​
 
-We recommend installing with `conda`
-
-待補充
-
-***Give conda yml***
-
-manual installation
-
-```shell
-# Categorical dependence
-conda install -c bioconda samtools 
-conda install -c bioconda blast
-conda install -c bioconda cd-hit
-conda install -c bioconda fasttree
-conda install -c bioconda mafft
-# Quantitative dependence
-conda install -c bioconda telescope
-conda install -c conda-forge r-base r-optparse r-readr r-dplyr
-```
-
-
-```shell
-git clone https://github.com/Suosihe/volcano_LTR.git
-chmod a+x prepare.sh volcano.sh tel.sh
-export PATH=/path/to/volcano
-```
 
 ## Usage
 
