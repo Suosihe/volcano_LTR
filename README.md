@@ -122,3 +122,27 @@ tel.sh -g test.pass.list.gff3 -s test.st.sam -p test -n test_len &> tel_test.log
 ### Quantification
 
 The obtained `prefix_RPKM.tsv` is the quantitative file.
+
+## Reference
+
+[cd-hit](http://cd-hit.org) 
+
+> "Cd-hit: a fast program for clustering and comparing large sets of protein or nucleotide sequences", Weizhong Li & Adam Godzik. *Bioinformatics*, (2006) 22:1658-9.
+>
+> Limin Fu, Beifang Niu, Zhengwei Zhu, Sitao Wu and Weizhong Li, CD-HIT: accelerated for clustering the next generation sequencing data. *Bioinformatics*, (2012), 28 (23): 3150-3152. doi: 10.1093/bioinformatics/bts565.
+
+[RepeatMasker](https://github.com/rmhubley/RepeatMasker)
+
+> Smit, AFA, Hubley, R. & Green, P "RepeatMasker" at http://www.repeatmasker.org
+
+[samtools](https://github.com/samtools/samtools)
+
+> Petr Danecek, James K Bonfield, Jennifer Liddle, John Marshall, Valeriu Ohan, Martin O Pollard, Andrew Whitwham, Thomas Keane, Shane A McCarthy, Robert M Davies, Heng Li, Twelve years of SAMtools and BCFtools, GigaScience, Volume 10, Issue 2, February 2021, giab008, https://doi.org/10.1093/gigascience/giab008
+
+[telescope](https://github.com/mlbendall/telescope)
+
+> Bendall ML, de Mulder M, Iñiguez LP, Lecanda-Sánchez A, Pérez-Losada M, et al. (2019) Telescope: Characterization of the retrotranscriptome by accurate estimation of transposable element expression. PLOS Computational Biology 15(9): e1006453. https://doi.org/10.1371/journal.pcbi.1006453
+
+[FastTree](http://meta.microbesonline.org/fasttree)
+
+> Price, M.N., Dehal, P.S., and Arkin, A.P. (2010) FastTree 2 -- Approximately Maximum-Likelihood Trees for Large Alignments. PLoS ONE, 5(3):e9490. doi:10.1371/journal.pone.0009490.
