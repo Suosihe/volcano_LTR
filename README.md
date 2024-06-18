@@ -1,4 +1,4 @@
-![image](https://github.com/Suosihe/volcano_LTR/assets/63804301/a0ca0dbb-7f8b-4c80-8955-2746c24ebe1c)# volcano_LTR
+# volcano_LTR
 The pipeline to characterize the LTR-RTs family, classify and predict the burst families.
 
 ## Installation
@@ -105,6 +105,15 @@ The `*sorted.sam` file is obtained by comparing the RNA-seq file with the refere
 `-p` option is a prefix for the results file.
 
 `-n` option is the genome size file.
+
+## test
+
+```shell
+cd /your/path/to/volcano/test_data
+volcano.sh -l test.pass.list -f test.fasta -n test -s test_len &> vol_test.log
+samtools view -O SAM -o test.st.sam test.st.bam
+tel.sh -g test.pass.list.gff3 -s test.st.sam -p test -n test_len &> tel_test.log
+```
 
 ## Output
 
