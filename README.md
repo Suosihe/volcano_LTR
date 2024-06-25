@@ -96,9 +96,7 @@ Usage: tel.sh     Required parameters:
 * -h, --help: print this help and exit
 ```
 
-問題：
 
-***定量結果加上family名？***
 
 Find `*pass.list.gff3` in `EDTA_raw/LTR` directory or `*pass.list.gff3` in `LTR retriever` directory.
 
