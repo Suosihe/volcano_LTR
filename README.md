@@ -115,6 +115,8 @@ samtools view -O SAM -o test.st.sam test.st.bam
 tel.sh -g test.pass.list.gff3 -s test.st.sam -p test -n test_len &> tel_test.log
 ```
 
+Data is from [*Scaevola taccada* genome](https://www.nature.com/articles/s41467-023-40002-9).
+
 ## Output
 
 ### Classification
