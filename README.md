@@ -115,15 +115,26 @@ samtools view -O SAM -o test.st.sam test.st.bam
 tel.sh -g test.pass.list.gff3 -s test.st.sam -p test -n test_len &> tel_test.log
 ```
 
-Data is from [*Scaevola taccada* genome](https://www.nature.com/articles/s41467-023-40002-9).
+Test data is from [*Scaevola taccada* genome](https://www.nature.com/articles/s41467-023-40002-9).
 
 ## Output
 
 ### Classification
 
+`prefix_clust.out.clstr.list` file shows the clustering results.
+
+`prefix_fam_coverage` file shows the categories and details of each intact LTR-RT.
+
+`prefix_gypsy.rt.tree` and `prefix_copia.rt.tree` show the final trees with marker LTR-RTs. You can refer to the [wiki page](https://github.com/Suosihe/volcano_LTR/wiki). based on this tree to determine the categorisation of lineages levels.
+
+`prefix_fam_coverage.info` file shows the details of the each clusters.
+
+
 ### Quantification
 
-The obtained `prefix_RPKM.tsv` is the quantitative file.
+`prefix_RPKM.tsv` file shows the RPKM results of each intact LTR-RT.
+
+`prefix_tel-telescope_report.tsv` file shows a statistical report of the run containing model parameters and additional information.
 
 ## Reference
 
