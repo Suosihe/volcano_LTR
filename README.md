@@ -143,7 +143,7 @@ Rscripts clade_plot.R prefix_copia.rt.tree prefix.clade.tsv prefix.copia.png
 Rscripts clade_plot.R prefix_gypsy.rt.tree prefix.clade.tsv prefix.gypsy.png
 ```
 
-![image)[https://github.com/Suosihe/volcano_LTR/tree/main/test_data/ath_copia.rt.tree.png]
+![image](https://github.com/Suosihe/volcano_LTR/tree/main/test_data/ath_copia.rt.tree.png)
 
 
 ## Reference
