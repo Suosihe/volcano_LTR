@@ -134,6 +134,19 @@ Test data is from [*Scaevola taccada* genome](https://www.nature.com/articles/s4
 
 `prefix_tel-telescope_report.tsv` file shows a statistical report of the run containing model parameters and additional information.
 
+## Visualization
+
+In `/your/path/to/volcano_LTR/scripts/`, the `clade_plot.R` can help you make tree plots about LTR-RT:
+
+```shell
+Rscripts clade_plot.R prefix_copia.rt.tree prefix.clade.tsv prefix.copia.png
+Rscripts clade_plot.R prefix_gypsy.rt.tree prefix.clade.tsv prefix.gypsy.png
+```
+
+![Uploading ath_copia.rt.tree.png…]()
+
+
+
 ## Reference
 
 [CD-HIT](http://cd-hit.org) 
