@@ -177,8 +177,8 @@ tblastn -query $path1/dataset/copia.marker.fa -db ${prefix}.ltr.fa -out ${prefix
 extract_RT_from_blast.pl ${prefix}.gyp.out  |sort -k 1,1 -k 3,3nr -|perl -e 'while(<>){chomp;@a=split/\t/,$_;$hash{$a[0]}++;if($hash{$a[0]}==1){print ">$a[0]\n$a[4]\n";}}' -> ${prefix}_gypsy.RT.fa
 extract_RT_from_blast.pl ${prefix}.cop.out  |sort -k 1,1 -k 3,3nr -|perl -e 'while(<>){chomp;@a=split/\t/,$_;$hash{$a[0]}++;if($hash{$a[0]}==1){print ">$a[0]\n$a[4]\n";}}' -> ${prefix}_copia.RT.fa
 
-cat ${prefix}_copia.RT.fa ~/tools/00-volcano/dataset/copia.marker.fa  > ${prefix}_copia.rt.fa
-cat ${prefix}_gypsy.RT.fa ~/tools/00-volcano/dataset/Gyp_marker.fa > ${prefix}_gypsy.rt.fa 
+cat ${prefix}_copia.RT.fa $path1/dataset/copia.marker.fa  > ${prefix}_copia.rt.fa
+cat ${prefix}_gypsy.RT.fa $path1/dataset/Gyp_marker.fa > ${prefix}_gypsy.rt.fa 
 
 
 mafft ${prefix}_copia.rt.fa > ${prefix}_copia.rt.align
@@ -187,11 +187,22 @@ fasttree -quote ${prefix}_copia.rt.align > ${prefix}_copia.rt.tree
 mafft ${prefix}_gypsy.rt.fa > ${prefix}_gypsy.rt.align
 fasttree -quote ${prefix}_gypsy.rt.align > ${prefix}_gypsy.rt.tree
 
+python $path1/scripts/class_clade.py ${prefix}_copia.rt.tree ${prefix}_copia.class.csv
+python $path1/scripts/class_clade.py ${prefix}_gypsy.rt.tree ${prefix}_gypsy.class.csv
+
 assign_domain_based.pl $prefix.ltr.acc ${prefix}_copia.rt.fa ${prefix}_gypsy.rt.fa >${prefix}_cluster_ltr_acc_domain
 
 obtain_lib_list_num.pl ${prefix}_clust.out.clstr >${prefix}_clust.out.clstr.list
 
-re_judge.pl ${prefix}_clust.out.clstr.list ${prefix}_cluster_ltr_acc_domain > ${prefix}_re_judge.out
+re_judge2.pl ${prefix}_clust.out.clstr.list ${prefix}_cluster_ltr_acc_domain > ${prefix}_re_judge2.out
 
-add_family_info.pl ${prefix}_re_judge.out ${prefix}_fam_coverage > ${prefix}_fam_coverage.info
+add_family_info.pl ${prefix}_re_judge2.out ${prefix}_fam_coverage > ${prefix}_temp0
 
+cat ${prefix}_copia.class.csv ${prefix}_gypsy.class.csv|grep -v "Digit"|perl -pe 's/\r\n/\n/g'|awk -F"," '{print $1"\t"$2}'|sort -k2,2 > temp1
+join -t $'\t' -1 2 temp1 $path1/dataset/class.std.txt| awk '{print $2,$1,$3}' |sort -k1,1|sed 's/ /\t/g' >temp2
+grep -v "#RepeatMasker_entry" ${prefix}_temp0|sort -k17,17 | join -t $'\t' -a 1 -e 'NULL' -1 17 - temp2 -o '1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,2.3' > temp3
+sed '1s/^/#RepeatMasker_entry\tTE_family\tFull_length\tLeft_end_only\tRight_end_only\tConverted_copy_number\tTotal_entries\tTotal_length_in_bp\tWhole_genome_percentage\tClass\tSubclass\tNote\tFamily\tNUM\tType\tTREE_type\tID\tClade\n/' temp3 > ${prefix}_fam_coverage.info
+
+cut -f 17,18 ${prefix}_fam_coverage.info > ${prefix}_clade.tsv
+
+rm -rf ${prefix}_temp0 temp1 temp2 temp3 ${prefix}_fam_coverage ${prefix}_copia.rt.align ${prefix}_gypsy.rt.align ${prefix}_copia.rt.fa ${prefix}_gypsy.rt.fa ${prefix}_gypsy.RT.fa ${prefix}_copia.RT.fa ${prefix}_copia.class.csv ${prefix}_gypsy.class.csv ${prefix}_clust.out ${prefix}.clust.num ${prefix}.ltr* ${prefix}_cluster_ltr_acc_domain ${ref_fa}.cat.gz ${ref_fa}.out ${ref_fa}.masked ${ref_fa}.tbl ${prefix}.gyp.out ${prefix}.cop.out ${prefix}_re_judge2.out
