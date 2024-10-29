@@ -143,8 +143,7 @@ Rscripts clade_plot.R prefix_copia.rt.tree prefix.clade.tsv prefix.copia.png
 Rscripts clade_plot.R prefix_gypsy.rt.tree prefix.clade.tsv prefix.gypsy.png
 ```
 
-![Uploading ath_copia.rt.tree.png…]()
-
+![ath.copia.png)[./test_data/ath_copia.rt.tree.png]
 
 
 ## Reference
