@@ -123,11 +123,9 @@ Test data is from [*Scaevola taccada* genome](https://www.nature.com/articles/s4
 
 `prefix_clust.out.clstr.list` file shows the clustering results.
 
-`prefix_fam_coverage` file shows the categories and details of each intact LTR-RT.
+`prefix_gypsy.rt.tree` and `prefix_copia.rt.tree` show the final trees with marker LTR-RTs. 
 
-`prefix_gypsy.rt.tree` and `prefix_copia.rt.tree` show the final trees with marker LTR-RTs. You can refer to the [wiki page](https://github.com/Suosihe/volcano_LTR/wiki). based on this tree to determine the categorisation of lineages levels.
-
-`prefix_fam_coverage.info` file shows the details of the each clusters.
+`prefix_fam_coverage.info` file shows the details of the LTR-RTs in each clusters. The 18th column is the clade of LTR-RTs.
 
 
 ### Quantification
