@@ -150,7 +150,7 @@ check_perl add_family_info.pl
 echo -e "\nAll dependent packages are installed successfully!\n"
 
 function get_ref {
-        which volcano0531.sh | sed 's/\/volcano0531.sh//g'
+        which volcano.sh | sed 's/\/volcano.sh//g'
 }
 
 path1=$(get_ref)
