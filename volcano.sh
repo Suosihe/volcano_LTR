@@ -203,6 +203,7 @@ join -t $'\t' -1 2 temp1 $path1/dataset/class.std.txt| awk '{print $2,$1,$3}' |s
 grep -v "#RepeatMasker_entry" ${prefix}_temp0|sort -k17,17 | join -t $'\t' -a 1 -e 'NULL' -1 17 - temp2 -o '1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,1.10,1.11,1.12,1.13,1.14,1.15,1.16,1.17,2.3' > temp3
 sed '1s/^/#RepeatMasker_entry\tTE_family\tFull_length\tLeft_end_only\tRight_end_only\tConverted_copy_number\tTotal_entries\tTotal_length_in_bp\tWhole_genome_percentage\tClass\tSubclass\tNote\tFamily\tNUM\tType\tTREE_type\tID\tClade\n/' temp3 > ${prefix}_fam_coverage.info
 
-cut -f 17,18 ${prefix}_fam_coverage.info > ${prefix}_clade.tsv
+cut -f 1,3 temp2 |grep "Ty3" |sed '1i ID\tClade' > ${prefix}_gypsy_clade.tsv
+cut -f 1,3 temp2 |grep "Ty1" |sed '1i ID\tClade' > ${prefix}_copia_clade.tsv
 
 rm -rf ${prefix}_temp0 temp1 temp2 temp3 ${prefix}_fam_coverage ${prefix}_copia.rt.align ${prefix}_gypsy.rt.align ${prefix}_copia.rt.fa ${prefix}_gypsy.rt.fa ${prefix}_gypsy.RT.fa ${prefix}_copia.RT.fa ${prefix}_copia.class.csv ${prefix}_gypsy.class.csv ${prefix}_clust.out ${prefix}.clust.num ${prefix}.ltr* ${prefix}_cluster_ltr_acc_domain ${ref_fa}.cat.gz ${ref_fa}.out ${ref_fa}.masked ${ref_fa}.tbl ${prefix}.gyp.out ${prefix}.cop.out ${prefix}_re_judge2.out
