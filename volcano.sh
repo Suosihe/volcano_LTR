@@ -187,8 +187,8 @@ fasttree -quote ${prefix}_copia.rt.align > ${prefix}_copia.rt.tree
 mafft ${prefix}_gypsy.rt.fa > ${prefix}_gypsy.rt.align
 fasttree -quote ${prefix}_gypsy.rt.align > ${prefix}_gypsy.rt.tree
 
-python $path1/scripts/class_clade.py ${prefix}_copia.rt.tree ${prefix}_copia.class.csv
-python $path1/scripts/class_clade.py ${prefix}_gypsy.rt.tree ${prefix}_gypsy.class.csv
+python $path1/scripts/classify_clade.py ${prefix}_copia.rt.tree ${prefix}_copia.class.csv
+python $path1/scripts/classify_clade.py ${prefix}_gypsy.rt.tree ${prefix}_gypsy.class.csv
 
 assign_domain_based.pl $prefix.ltr.acc ${prefix}_copia.rt.fa ${prefix}_gypsy.rt.fa >${prefix}_cluster_ltr_acc_domain
 
