@@ -132,7 +132,7 @@ check_perl(){
 	if which $1 >/dev/null 2>&1; then
 	  echo -e "$1 found."
 	else
-	  echo -e "error: $1 not found! Please check that /path/to/volcano/bin should be in your \$PATH!"
+	  echo -e "error: $1 not found! Please check that /path/to/volcano/scripts should be in your \$PATH!"
 	  exit
 	fi
 }
@@ -144,7 +144,7 @@ check_perl fam_coverage.pl
 check_perl list2_ltr_seq.pl
 check_perl assign_domain_based.pl
 check_perl obtain_lib_list_num.pl
-check_perl re_judge.pl
+check_perl re_judge2.pl
 check_perl add_family_info.pl
 
 echo -e "\nAll dependent packages are installed successfully!\n"
