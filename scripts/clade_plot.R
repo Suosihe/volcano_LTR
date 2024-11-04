@@ -35,16 +35,17 @@ p0 <- ggtree(tree, layout="equal_angle") %<+% anno_df +
   geom_tippoint(aes(color = clade), size = 1) +
   #  geom_tree(aes(color = clade)) +
   scale_color_manual(values = c(
-    'Ivana' = 'firebrick', 
-    'Tork' = 'lightblue', 
-    'CRM' = 'green', 
-    'SIRE' = 'pink', 
-    'Reina' = 'orange', 
-    'Ale' = 'navy',
-    'Athila' = 'tomato',
-    'Ikeros' = 'darkorange',
-    'Tekay' = 'darkgreen',
-    'TAR' = 'gold'
+    'Ivana_Ty1' = 'firebrick', 
+    'Tork_Ty1' = 'lightblue', 
+    'CRM_Ty3' = 'green', 
+    'SIRE_Ty1' = 'pink', 
+    'Reina_Ty3' = 'orange', 
+    'Ale_Ty1' = 'navy',
+    'Athila_Ty3' = 'tomato',
+    'Ikeros_Ty1' = 'darkorange',
+    'Tekay_Ty3' = 'darkgreen',
+    'TAR_Ty1' = 'gold',
+    'Galadriel_Ty3' = 'royalblue'
   ), na.translate = FALSE)  +
   theme(legend.position = "right")
 
