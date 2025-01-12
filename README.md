@@ -139,8 +139,8 @@ Test data is from [*Scaevola taccada* genome](https://www.nature.com/articles/s4
 In `/your/path/to/volcano_LTR/scripts/`, the `clade_plot.R` can help you make tree plots about LTR-RT:
 
 ```shell
-Rscripts clade_plot.R prefix_copia.rt.tree prefix_gypsy_clade.tsv prefix.copia.png
-Rscripts clade_plot.R prefix_gypsy.rt.tree prefix_copia_clade.tsv prefix.gypsy.png
+Rscripts clade_plot.R prefix_copia.rt.tree prefix_copia_clade.tsv prefix.copia.png
+Rscripts clade_plot.R prefix_gypsy.rt.tree prefix_gypsy_clade.tsv prefix.gypsy.png
 ```
 
 ![image](./test_data/ath_copia.rt.tree.png)
