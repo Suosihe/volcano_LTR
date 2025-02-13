@@ -15,15 +15,17 @@ Then
 
 ```shell
 git clone https://github.com/Suosihe/volcano_LTR.git
-chmod a+x prepare.sh volcano.sh tel.sh
+cd /path/to/volcano
+chmod a+x prepare.sh volcano.sh tel.sh scripts/*
 export PATH=/path/to/volcano
+export PATH=/path/to/volcano/scripts
 ```
 
 The dependence contains:
 
 `perl >= 5.0`​
 
-Categorical dependence: `samtools`,`RepeatMasker`​,`blast`​,`fasttree`​
+Categorical dependence: `samtools`,`RepeatMasker`​,`blast`​,`fasttree`,`cd-hit`,`mafft`​
 
 Quantitative dependence:`telescope`,`r-optparse`,`r-readr`,`r-dplyr`
 
@@ -76,6 +78,8 @@ The optional parameters：
 `-v` 'div' in RepeatMasker Masks only those repeats with (number) percent diverged from consensus, default 40
 
 If you want to prepare the input files more conveniently, you may visit [Wiki](https://github.com/Suosihe/volcano_LTR/wiki).
+
+By default, the log will be output on the screen.
 
 
 ### Quantification
