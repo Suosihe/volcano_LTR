@@ -3,6 +3,9 @@ The pipeline to characterize the LTR-RTs family, classify and predict the burst 
 
 To run volcano-pipeline, you need the result of [`LTR retriver`](https://github.com/oushujun/LTR_retriever) or [`EDTA`](https://github.com/oushujun/EDTA).
 
+![image](https://github.com/user-attachments/assets/ed5dea6d-57ca-4439-8424-6d3b93740d53)
+
+
 ## Installation
 
 We recommend installing dependence with `conda`
