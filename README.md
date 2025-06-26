@@ -132,7 +132,7 @@ Test data is from [*Scaevola taccada* genome](https://www.nature.com/articles/s4
 
 `prefix_gypsy.rt.tree` and `prefix_copia.rt.tree` show the final trees with marker LTR-RTs. 
 
-`prefix_fam_coverage.info` file shows the details of the LTR-RTs in each clusters. The 18th column is the clade of LTR-RTs.
+`prefix_fam_coverage.info` file shows the details of the LTR-RTs in each clusters. The 13th column is the clade of LTR-RTs.
 
 
 ### Quantification
