@@ -132,8 +132,23 @@ Test data is from [*Scaevola taccada* genome](https://www.nature.com/articles/s4
 
 `prefix_gypsy.rt.tree` and `prefix_copia.rt.tree` show the final trees with marker LTR-RTs. 
 
-`prefix_fam_coverage.info` file shows the details of the LTR-RTs in each clusters. The 13th column is the clade of LTR-RTs.
+`prefix_fam_coverage.info` file shows the details of the LTR-RTs in each clusters. Each column is described as below.
 
+| Column name             | Data type| Description                                                                                   | Example data                           |
+|-------------------------|----------|-----------------------------------------------------------------------------------------------|----------------------------------------|
+| RepeatMasker_entry      | String   | Name of the transposable element (TE).                                                        | NC_057761.1:45752..55570_LTR#LTR/Copia |
+| TE_family               | String   | Name of the transposable element family.                                                      | NC_057761.1:45752..55570_LTR           |
+| Full_length             | Integer  | Number of full-length copies.                                                                 | 192                                    |
+| Left_end_only           | Integer  | Number of left-end-only copies.                                                               | 68                                     |
+| Right_end_only          | Integer  | Number of right-end-only copies.                                                              | 9                                      |
+| Converted_copy_number   | Integer  | The converted copy number, calculated as: full-length + (left-end-only + right-end-only) / 2. | 231                                    |
+| Total_entries           | Integer  | The total number of entries in this transposable element family.                              | 270                                    |
+| Total_length_in_bp      | Integer  | The total length of all entries in this transposable element family (in base pairs, bp).      | 58442                                  |
+| Whole_genome_percentage | Float    | The percentage of the transposon family relative to the entire genome.                        | 0.01354                                |
+| Subclass                | String   | The subclass of the transposon, such as Copia or Gypsy.                                       | Copia                                  |
+| NUM                     | Integer  | The number of sequences in each evolutionary branch (clade).                                  | 37                                     |
+| ID                      | Integer  | The unique identifier for each family.                                                        | 1002                                   |
+| Clade                   | String   | The name of the evolutionary branch, such as SIRE, Tork, etc.                                 | Tork_Ty1                               |
 
 ### Quantification
 
