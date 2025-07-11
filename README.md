@@ -168,12 +168,14 @@ Rscripts clade_plot.R prefix_gypsy.rt.tree prefix_gypsy_clade.tsv prefix.gypsy.p
 ![image](./test_data/ath_copia.rt.tree.png)
 
 
-## Reference
+## Citation
 
 **Please cite:**
 
 > Hao He, Fei Shen, Yong Hou, Xiaozeng Yang, Volcano: a pipeline to characterize long terminal repeat-retrotransposons families in plants, *Bioinformatics Advances*, 2025;, vbaf162, https://doi.org/10.1093/bioadv/vbaf162
 
+
+## Reference
 
 [CD-HIT](http://cd-hit.org) 
 
